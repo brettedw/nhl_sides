@@ -79,4 +79,4 @@ def index():
 
     return render_template('index.html', **locals())
 
-app.run()
+# app.run()
