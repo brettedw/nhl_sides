@@ -54,7 +54,7 @@ def main():
             points = get_points(stats)
             games = get_games(stats)
             ppg = points/games
-            result += f'{k} has {points} points in {games} games ({ppg:.1f} PPG)<br>'
+            result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG)<br>'
         result += '<hr>'
 
     team_bets = [eddie_rookies, quinn_rookies]
@@ -66,8 +66,8 @@ def main():
             games = get_games(stats)
             ppg = points/games
             pt_total += points
-            result += f'{k} has {points} points in {games} games ({ppg:.1f} PPG)<br>'
-        result += f'Team Total: {pt_total}<hr>'
+            result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG)<br>'
+        result += f'-- Team Total: {pt_total}<hr>'
     return result
 
 
