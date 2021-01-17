@@ -79,4 +79,5 @@ def index():
 
     return render_template('index.html', **locals())
 
-# app.run()
+if __name__=='__main__':
+    app.run()
