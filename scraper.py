@@ -1,7 +1,7 @@
 import requests
 import json
 from flask import Flask, render_template
-from pprint import pprint
+import pandas as pd
 
 bet1 = {
     'Elias Lindholm':8477496,
@@ -32,6 +32,10 @@ def request_json(player_id):
 
     return stats
 
+def get_player_stats(json_stats):
+    stats = json_stats['stats'][0]['splits'][0]['stat']
+
+    return stats
 
 def get_points(json_stats):
     points = json_stats['stats'][0]['splits'][0]['stat']['points']
@@ -44,6 +48,9 @@ def get_games(json_stats):
 
     return games
 
+
+def make_tables():
+    
 
 def main():
     result = ''
