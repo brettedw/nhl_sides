@@ -50,7 +50,7 @@ def get_games(json_stats):
 
 
 def make_tables():
-    
+    pass
 
 def main():
     result = ''
