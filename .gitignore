@@ -1,3 +1,5 @@
 app/
 
 .vscode/
+
+__pycache__/
