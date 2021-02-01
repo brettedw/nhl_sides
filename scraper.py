@@ -33,6 +33,7 @@ def player_bets_string(list_of_bets):
         result += '<hr>'
     return result
 
+
 def player_team_bets_string(list_of_bets):
     result = ''
     for bet in list_of_bets:
@@ -50,6 +51,7 @@ def player_team_bets_string(list_of_bets):
         result += f'-- Team Total: {pt_total}<hr>'
 
     return result
+
 
 def goalie_bets_string(list_of_bets):
     result = ''
@@ -95,6 +97,7 @@ def goalie_team_bets_string(list_of_bets):
         result += f'-- Team Total: {pt_total}<hr>'
     return result
 
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -129,4 +132,3 @@ def MarcVQuinn():
 
 if __name__=='__main__':
     app.run()
-    # print(goalie_team_bets_string(MvQ.goalie_teams))

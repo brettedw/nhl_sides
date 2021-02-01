@@ -1,6 +1,6 @@
 bet1 = {
     'Cale Makar':8480069,
-    'Quinn Hughes': 8480800,
+    'Jack Hughes': 8481559,
 }
 
 marc_team = {
