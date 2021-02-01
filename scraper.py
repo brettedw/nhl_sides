@@ -2,28 +2,8 @@ import requests
 import json
 from flask import Flask, render_template
 import pandas as pd
+import EvQ, EvM
 
-bet1 = {
-    'Elias Lindholm':8477496,
-    'Kevin Fiala': 8477942,
-}
-
-bet2 = {
-    'Shea Theodore': 8477447,
-    'Morgan Rielly': 8476853
-}
-
-eddie_rookies = {
-    'Alexis Lafrenière': 8482109,
-    'Nils Hoglander': 8481535,
-    'Josh Norris': 8480064
-}
-
-quinn_rookies = {
-    'Kirill Kaprizov': 8478864,
-    'Tim Stützle': 8482116,
-    'Gabriel Vilardi': 8480014
-}
 
 def request_json(player_id):
     request = f'https://statsapi.web.nhl.com/api/v1/people/{player_id}/stats?stats=statsSingleSeason&season=20202021'
@@ -32,59 +12,87 @@ def request_json(player_id):
 
     return stats
 
+
 def get_player_stats(json_stats):
     stats = json_stats['stats'][0]['splits'][0]['stat']
 
     return stats
 
-def get_points(json_stats):
-    points = json_stats['stats'][0]['splits'][0]['stat']['points']
 
-    return points
-
-
-def get_games(json_stats):
-    games = json_stats['stats'][0]['splits'][0]['stat']['games']
-
-    return games
-
-
-def make_tables():
-    pass
-
-def main():
+def player_bets_string(list_of_bets):
     result = ''
-    bets = [bet1, bet2]
-    for bet in bets:
+    for bet in list_of_bets:
         for k,v in bet.items():
-            stats = request_json(v)
-            points = get_points(stats)
-            games = get_games(stats)
+            resp = request_json(v)
+            stats = get_player_stats(resp)
+
+            points = stats['points']
+            games = stats['games']
             ppg = points/games
+
             result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG)<br>'
         result += '<hr>'
+    return result
 
-    team_bets = [eddie_rookies, quinn_rookies]
-    for bet in team_bets:
+def player_team_bets_string(list_of_bets):
+    result = ''
+    for bet in list_of_bets:
         pt_total = 0
         for k,v in bet.items():
-            stats = request_json(v)
-            points = get_points(stats)
-            games = get_games(stats)
+            resp = request_json(v)
+            stats = get_player_stats(resp)
+
+            points = stats['points']
+            games = stats['games']
             ppg = points/games
+
             pt_total += points
             result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG)<br>'
         result += f'-- Team Total: {pt_total}<hr>'
+
     return result
 
+def goalie_bets_string(list_of_bets):
+    result = ''
+    for bet in list_of_bets:
+        for k,v in bet.items():
+            resp = request_json(v)
+            stats = get_player_stats(resp)
+
+            games = stats['games']
+            wins = stats['wins']
+            shutouts = stats['shutouts']
+            ot = stats['ot']
+
+            points = wins*2 + shutouts*2 + ot
+            ppg = points/games
+
+            result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG) -- {wins} wins - {shutouts} shutouts - {ot} OT points<br>'
+        result += '<hr>'
+    return result
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    stats = main()
+    return render_template('index.html')
 
-    return render_template('index.html', **locals())
+
+@app.route('/EddieVQuinn')
+def EddieVQuinn():
+    stats = player_bets_string(EvQ.player_bets)
+    stats += player_team_bets_string(EvQ.team_bets)
+
+    return render_template('bets.html', **locals())
+
+
+@app.route('/EddieVMarc')
+def EddieVMarc():
+    stats = player_bets_string(EvM.player_bets)
+    stats += goalie_bets_string(EvM.goalie_bets)
+
+    return render_template('bets.html', **locals())
+
 
 if __name__=='__main__':
     app.run()
