@@ -1,7 +1,7 @@
 import requests
 import json
 from flask import Flask, render_template
-import EvQ, EvM
+import EvQ, EvM, MvQ
 
 
 def request_json(player_id):
@@ -70,6 +70,31 @@ def goalie_bets_string(list_of_bets):
         result += '<hr>'
     return result
 
+
+def goalie_team_bets_string(list_of_bets):
+    result = ''
+    for bet in list_of_bets:
+        pt_total = 0
+        for k,v in bet.items():
+            resp = request_json(v)
+            try:
+                stats = get_player_stats(resp)
+
+                games = stats['games']
+                wins = stats['wins']
+                shutouts = stats['shutouts']
+                ot = stats['ot']
+
+                points = wins*2 + shutouts*2 + ot
+                ppg = points/games
+                pt_total += points
+
+                result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG) -- {wins} wins - {shutouts} shutouts - {ot} OT points<br>'
+            except: 
+                result += f'{k} has yet to play a game<br>'
+        result += f'-- Team Total: {pt_total}<hr>'
+    return result
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -93,5 +118,15 @@ def EddieVMarc():
     return render_template('bets.html', **locals())
 
 
+@app.route('/MarcVQuinn')
+def MarcVQuinn():
+    stats = player_bets_string(MvQ.player_bets)
+    stats += player_team_bets_string(MvQ.team_bets)
+    stats += goalie_team_bets_string(MvQ.goalie_teams)
+
+    return render_template('bets.html', **locals())
+
+
 if __name__=='__main__':
     app.run()
+    # print(goalie_team_bets_string(MvQ.goalie_teams))
