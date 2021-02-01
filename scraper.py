@@ -1,7 +1,6 @@
 import requests
 import json
 from flask import Flask, render_template
-import pandas as pd
 import EvQ, EvM
 
 
