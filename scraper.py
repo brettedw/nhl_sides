@@ -110,7 +110,7 @@ def EddieVQuinn():
     stats = player_bets_string(EvQ.player_bets)
     stats += player_team_bets_string(EvQ.team_bets)
 
-    return render_template('bets.html', **locals())
+    return render_template('index.html', **locals())
 
 
 @app.route('/EddieVMarc')
@@ -118,7 +118,7 @@ def EddieVMarc():
     stats = player_bets_string(EvM.player_bets)
     stats += goalie_bets_string(EvM.goalie_bets)
 
-    return render_template('bets.html', **locals())
+    return render_template('index.html', **locals())
 
 
 @app.route('/MarcVQuinn')
@@ -127,7 +127,7 @@ def MarcVQuinn():
     stats += player_team_bets_string(MvQ.team_bets)
     stats += goalie_team_bets_string(MvQ.goalie_teams)
 
-    return render_template('bets.html', **locals())
+    return render_template('index.html', **locals())
 
 
 if __name__=='__main__':
