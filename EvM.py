@@ -14,7 +14,7 @@ bet3 = {
 }
 
 bet4 = {
-    'Tukka Rask':8471695,
+    'Tuukka Rask':8471695,
     'Carter Hart': 8479394,
 }
 
