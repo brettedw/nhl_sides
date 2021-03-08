@@ -29,7 +29,7 @@ def player_bets_string(list_of_bets):
             games = stats['games']
             ppg = points/games
 
-            result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG)<br>'
+            result += f'{k} -- {points} points in {games} games ({ppg:.2f} PPG)<br>'
         result += '<hr>'
     return result
 
@@ -47,7 +47,7 @@ def player_team_bets_string(list_of_bets):
             ppg = points/games
 
             pt_total += points
-            result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG)<br>'
+            result += f'{k} -- {points} points in {games} games ({ppg:.2f} PPG)<br>'
         result += f'-- Team Total: {pt_total}<hr>'
 
     return result
@@ -68,7 +68,7 @@ def goalie_bets_string(list_of_bets):
             points = wins*2 + shutouts*2 + ot
             ppg = points/games
 
-            result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG) -- {wins} wins - {shutouts} shutouts - {ot} OT points<br>'
+            result += f'{k} -- {points} points in {games} games ({ppg:.2f} PPG) -- {wins} wins - {shutouts} shutouts - {ot} OT points<br>'
         result += '<hr>'
     return result
 
@@ -91,7 +91,7 @@ def goalie_team_bets_string(list_of_bets):
                 ppg = points/games
                 pt_total += points
 
-                result += f'{k} -- {points} points in {games} games ({ppg:.1f} PPG) -- {wins} wins - {shutouts} shutouts - {ot} OT points<br>'
+                result += f'{k} -- {points} points in {games} games ({ppg:.2f} PPG) -- {wins} wins - {shutouts} shutouts - {ot} OT points<br>'
             except: 
                 result += f'{k} has yet to play a game<br>'
         result += f'-- Team Total: {pt_total}<hr>'
