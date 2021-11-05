@@ -1,24 +1,29 @@
 bet1 = {
-    'Elias Lindholm':8477496,
-    'Kevin Fiala': 8477942,
+    'Jason Robertson':8480027,
+    'Nick Suzuki': 8480018,
 }
 
-bet2 = {
-    'Shea Theodore': 8477447,
-    'Morgan Rielly': 8476853
+bet2e = {
+    'Nathan MacKinnon': 8477492,
+    'David Pastrnak': 8477956
+}
+
+bet2q = {
+    'Artemi Panarin': 8478550,
+    'Mitch Marner': 8478483
 }
 
 eddie_rookies = {
-        'Alexis Lafrenière': 8482109,
-        'Nils Hoglander': 8481535,
-        'Josh Norris': 8480064 
+        'Trevor Zegras': 8481533,
+        'Shane Pinto': 8481596,
     }
 
 quinn_rookies = {
-        'Kirill Kaprizov': 8478864,
-        'Tim Stützle': 8482116,
-        'Gabriel Vilardi': 8480014
+        'Cole Caufield': 8481540,
+        'Lucas Raymond': 8482078,
+        'Hendrix Lapierre': 8482148
     }
 
-player_bets = [bet1, bet2]
-team_bets = [eddie_rookies, quinn_rookies]
+player_bets = [bet1]
+team_bets = [bet2e, bet2q, eddie_rookies, quinn_rookies]
+rules = 'PPG for first 2 bets, point totals for rookies. For 1 sushi roll per win'

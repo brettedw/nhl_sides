@@ -1,6 +1,6 @@
 bet1 = {
-    'Sidney Crosby':8471675,
-    'Alex Ovechkin':8471214,
+    'Josh Norris': 8480064,
+    'Tim Stützle':8482116,
 }
 
 bet2 = {
@@ -9,14 +9,20 @@ bet2 = {
 }
 
 bet3 = {
-    'David Pastrnak':8477956,
     'Johnny Gaudreau': 8476346,
+    'William Nylander': 8477939
 }
 
-bet4 = {
-    'Tuukka Rask':8471695,
-    'Carter Hart': 8479394,
+eddie_team = {
+    'Jaden Schwartz': 8475768,
+    'Shea Theodore': 8477447
+}
+
+marc_team = {
+    'Jared McCann': 8477955,
+    'Dougie Hamilton': 8476462
 }
 
 player_bets = [bet1, bet2, bet3]
-goalie_bets = [bet4]
+team_bets = [eddie_team, marc_team]
+rules = 'PPG on individual bets, total points on team bets (Min 41GP). Buy/carry/make Bowron meal.'

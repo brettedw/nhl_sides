@@ -48,6 +48,7 @@
       <a href="{{ url_for('EddieVQuinn') }}">Quinn vs Eddie</a>
       <a href="{{ url_for('EddieVMarc') }}">Marc vs Eddie</a>
       <a href="{{ url_for('MarcVQuinn') }}">Marc vs Quinn</a>
+      <a href="{{ url_for('MitchVQuinn') }}">Mitch vs Quinn</a>
     </div>
 
     <div class="content">
@@ -55,6 +56,8 @@
       <p>{% autoescape false %}
         {{stats}}
         {% endautoescape %}</p>
+
+      <p>{{rules}}</p>
     </div>
 
   </body>
