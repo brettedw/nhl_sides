@@ -1,6 +1,6 @@
 bet1 = {
     'Cale Makar':8480069,
-    'Jack Hughes': 8481559,
+    'Adam Fox': 8479323,
 }
 
 bet2 = {
