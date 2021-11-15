@@ -16,6 +16,7 @@ bet2q = {
 eddie_rookies = {
         'Trevor Zegras': 8481533,
         'Shane Pinto': 8481596,
+        'Alex Newhook': 8481618
     }
 
 quinn_rookies = {
