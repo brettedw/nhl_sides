@@ -5,7 +5,7 @@ bet1 = {
 
 bet2 = {
     'Logan Couture': 8474053,
-    'Jordan Kyrou': 8474053
+    'Jordan Kyrou': 8479385
 }
 
 bet3 = {
