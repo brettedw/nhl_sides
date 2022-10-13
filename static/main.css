@@ -1,0 +1,41 @@
+.base_table td,
+.base_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 500px;
+}
+
+.base_table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.base_table tr:hover {
+    background-color: #ddd;
+}
+
+.base_table th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    background-color: #4c74af;
+    color: white;
+}
+
+.base_table {
+    border-collapse: collapse;
+    width: 30%;
+    margin-top: 50px;
+    margin-bottom: 12px;
+    float: left;
+    border-right: 5px;
+}
+
+th.owner_title {
+    background-color: #064097;
+}
+
+.bold {
+    font-weight: bold;
+}

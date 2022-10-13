@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<div style="overflow-x:auto;">
+    {% for owner, players in bet1_teams.items() %}
+    <table class="base_table">
+        <tr>
+            <th colspan="8" class="owner_title">{{ owner }}</th>
+        </tr>
+        <tr>
+            <th>Player</th>
+            <th>GP</th>
+            <th>G</th>
+            <th>A</th>
+            <th>P</th>
+        </tr>
+        {% for player in players %}
+        <tr>
+            <td>{{ player.player_name }}</td>
+            <td>{{ player.games }}</td>
+            <td>{{ player.goals }}</td>
+            <td>{{ player.assists }}</td>
+            <td>{{ player.points }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
+</div>
+
+<div style="overflow-x:auto;">
+    {% for owner, players in bet2_teams.items() %}
+    <table class="base_table">
+        <tr>
+            <th colspan="8" class="owner_title">{{ owner }}</th>
+        </tr>
+        <tr>
+            <th>Player</th>
+            <th>GP</th>
+            <th>G</th>
+            <th>A</th>
+            <th>P</th>
+            <th>W</th>
+            <th>SO</th>
+            <th>Fpts</th>
+        </tr>
+        {% for player in players %}
+        <tr>
+            <td>{{ player.player_name }}</td>
+            <td>{{ player.games }}</td>
+            <td>{{ player.goals }}</td>
+            <td>{{ player.assists }}</td>
+            <td>{{ player.points }}</td>
+            <td>{{ player.wins }}</td>
+            <td>{{ player.shutouts }}</td>
+            <td>{{ player.Fpts }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
+</div>
+
+<div style="overflow-x:auto;">
+    {% for owner, players in bet3_teams.items() %}
+    <table class="base_table">
+        <tr>
+            <th colspan="5" class="owner_title">{{ owner }}</th>
+        </tr>
+        <tr>
+            <th>Player</th>
+            <th>GP</th>
+            <th>Current Season Pts</th>
+            <th>Last Season Pts</th>
+            <th>Points Differential</th>
+        </tr>
+        {% for player in players %}
+        <tr>
+            <td>{{ player.player_name }}</td>
+            <td>{{ player.games }}</td>
+            <td>{{ player.points }}</td>
+            <td>{{ player.pts_last_szn }}</td>
+            <td>{{ player.pts_differential }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
+</div>
+
+{% endblock %}
