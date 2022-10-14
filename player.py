@@ -2,7 +2,6 @@ import requests
 import json
 import pandas as pd
 import pickle
-from pprint import pprint
 import os
 
 SEASON = '20222023'
