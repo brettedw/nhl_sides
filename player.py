@@ -63,7 +63,7 @@ class Player:
 
     def set_ppg(self):
         try:
-            self.ppg = self.points / self.games
+            self.ppg = round(self.points / self.games, 2)
         except:
             self.pgg = '-'
 
