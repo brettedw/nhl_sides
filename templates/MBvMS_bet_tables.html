@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<div style="overflow-x:auto;">
+    {% for team in bet1_teams %}
+    <table class="base_table">
+        <tr>
+            <th colspan="8" class="owner_title">{{ team.owner }}</th>
+        </tr>
+        <tr>
+            <th>Player</th>
+            <th>GP</th>
+            <th>G</th>
+            <th>A</th>
+            <th>P</th>
+            <th>PPG</th>
+        </tr>
+        {% for player in team.roster %}
+        <tr>
+            <td>{{ player.player_name }}</td>
+            <td>{{ player.games }}</td>
+            <td>{{ player.goals }}</td>
+            <td>{{ player.assists }}</td>
+            <td>{{ player.points }}</td>
+            <td>{{ player.ppg }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td class="bold">Total</td>
+            <td class="bold">{{ team.total_games }}</td>
+            <td class="bold">{{ team.total_goals }}</td>
+            <td class="bold">{{ team.total_assists }}</td>
+            <td class="bold">{{ team.total_points }}</td>
+            <td class="bold">{{ team.total_points / team.total_games }}</td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -8,10 +8,10 @@
 
 
 <div style="overflow-x:auto;">
-    {% for owner, players in bet1_teams.items() %}
+    {% for team in bet1_teams %}
     <table class="base_table">
         <tr>
-            <th colspan="8" class="owner_title">{{ owner }}</th>
+            <th colspan="8" class="owner_title">{{ team.owner }}</th>
         </tr>
         <tr>
             <th>Player</th>
@@ -20,7 +20,7 @@
             <th>A</th>
             <th>P</th>
         </tr>
-        {% for player in players %}
+        {% for player in team.roster %}
         <tr>
             <td>{{ player.player_name }}</td>
             <td>{{ player.games }}</td>
@@ -34,10 +34,10 @@
 </div>
 
 <div style="overflow-x:auto;">
-    {% for owner, players in bet2_teams.items() %}
+    {% for team in bet2_teams %}
     <table class="base_table">
         <tr>
-            <th colspan="8" class="owner_title">{{ owner }}</th>
+            <th colspan="8" class="owner_title">{{ team.owner }}</th>
         </tr>
         <tr>
             <th>Player</th>
@@ -49,7 +49,7 @@
             <th>SO</th>
             <th>Fpts</th>
         </tr>
-        {% for player in players %}
+        {% for player in team.roster %}
         <tr>
             <td>{{ player.player_name }}</td>
             <td>{{ player.games }}</td>
@@ -61,15 +61,25 @@
             <td>{{ player.Fpts }}</td>
         </tr>
         {% endfor %}
+        <tr>
+            <td class="bold">Total</td>
+            <td class="bold">{{ team.total_games }}</td>
+            <td class="bold">{{ team.total_goals }}</td>
+            <td class="bold">{{ team.total_assists }}</td>
+            <td class="bold">{{ team.total_points }}</td>
+            <td class="bold">{{ team.total_wins }}</td>
+            <td class="bold">{{ team.total_so }}</td>
+            <td class="bold">{{ team.total_Fpts }}</td>
+        </tr>
     </table>
     {% endfor %}
 </div>
 
 <div style="overflow-x:auto;">
-    {% for owner, players in bet3_teams.items() %}
+    {% for team in bet3_teams %}
     <table class="base_table">
         <tr>
-            <th colspan="5" class="owner_title">{{ owner }}</th>
+            <th colspan="5" class="owner_title">{{ team.owner }}</th>
         </tr>
         <tr>
             <th>Player</th>
@@ -78,7 +88,7 @@
             <th>Last Season Pts</th>
             <th>Points Differential</th>
         </tr>
-        {% for player in players %}
+        {% for player in team.roster %}
         <tr>
             <td>{{ player.player_name }}</td>
             <td>{{ player.games }}</td>
@@ -87,6 +97,13 @@
             <td>{{ player.pts_differential }}</td>
         </tr>
         {% endfor %}
+        <tr>
+            <td class="bold">Total</td>
+            <td class="bold">{{ team.total_games }}</td>
+            <td class="bold">{{ team.total_points }}</td>
+            <td class="bold">{{ team.total_pts_last_szn }}</td>
+            <td class="bold">{{ team.total_pt_diff }}</td>
+        </tr>
     </table>
     {% endfor %}
 </div>

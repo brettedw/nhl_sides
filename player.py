@@ -17,9 +17,11 @@ class Player:
         self.owner = owner
         self.player_name = player_name
         self.player_id = None
-        self.points = '-'
+        self.games = 0
+        self.points = 0
         self.Fpts = 0
         self.ppg = '-'
+        self.apg = '-'
         self.pts_last_szn = 0
         self.pts_differential = 0
 
@@ -65,6 +67,12 @@ class Player:
             self.ppg = self.points / self.games
         except:
             self.pgg = '-'
+
+    def set_apg(self):
+        try:
+            self.apg = round(self.assists / self.games, 2)
+        except:
+            self.apg = '-'
 
 
 def get_team_url(team_name):

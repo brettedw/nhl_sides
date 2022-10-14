@@ -4,11 +4,11 @@ bet1 = {
 }
 
 bet2 = {
-    'Marc': ['Jarvis', 'Perfetti'],
-    'Quinn': ['Bunting', 'Wright']
+    'Marc': ['Bunting', 'Wright'],
+    'Quinn': ['Jarvis', 'Perfetti']
 }
 
 bet3 = {
-    'Marc': ['McDavid', 'Raymond', 'Slakovski', 'Fox', 'Josi', 'Fleury'],
-    'Quinn': ['Connor', 'Crosby', 'Marner', 'Power', 'Seider', 'Markstrom']
+    'Marc': ['McDavid', 'Raymond', 'Slafkovsky', 'Fox', 'Josi', 'Fleury'],
+    'Quinn': ['Kyle Connor', 'Crosby', 'Marner', 'Power', 'Seider', 'Markstrom']
 }

@@ -1,0 +1,104 @@
+{% extends 'index.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<div style="overflow-x:auto;">
+    {% for team in bet1_teams %}
+    <table class="base_table">
+        <tr>
+            <th colspan="8" class="owner_title">{{ team.owner }}</th>
+        </tr>
+        <tr>
+            <th>Player</th>
+            <th>GP</th>
+            <th>G</th>
+            <th>A</th>
+            <th>P</th>
+        </tr>
+        {% for player in team.roster %}
+        <tr>
+            <td>{{ player.player_name }}</td>
+            <td>{{ player.games }}</td>
+            <td class="bold">{{ player.goals }}</td>
+            <td>{{ player.assists }}</td>
+            <td>{{ player.points }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
+</div>
+
+<div style="overflow-x:auto;">
+    {% for team in bet2_teams %}
+    <table class="base_table">
+        <tr>
+            <th colspan="8" class="owner_title">{{ team.owner }}</th>
+        </tr>
+        <tr>
+            <th>Player</th>
+            <th>GP</th>
+            <th>G</th>
+            <th>A</th>
+            <th>P</th>
+        </tr>
+        {% for player in team.roster %}
+        <tr>
+            <td>{{ player.player_name }}</td>
+            <td>{{ player.games }}</td>
+            <td>{{ player.goals }}</td>
+            <td>{{ player.assists }}</td>
+            <td>{{ player.points }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
+</div>
+
+<div style="overflow-x:auto;">
+    {% for team in bet3_teams %}
+    <table class="base_table">
+        <tr>
+            <th colspan="8" class="owner_title">{{ team.owner }}</th>
+        </tr>
+        <tr>
+            <th>Player</th>
+            <th>GP</th>
+            <th>G</th>
+            <th>A</th>
+            <th>P</th>
+            <th>W</th>
+            <th>SO</th>
+            <th>Fpts</th>
+        </tr>
+        {% for player in team.roster %}
+        <tr>
+            <td>{{ player.player_name }}</td>
+            <td>{{ player.games }}</td>
+            <td>{{ player.goals }}</td>
+            <td>{{ player.assists }}</td>
+            <td>{{ player.points }}</td>
+            <td>{{ player.wins }}</td>
+            <td>{{ player.shutouts }}</td>
+            <td>{{ player.Fpts }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td class="bold">Total</td>
+            <td class="bold">{{ team.total_games }}</td>
+            <td class="bold">{{ team.total_goals }}</td>
+            <td class="bold">{{ team.total_assists }}</td>
+            <td class="bold">{{ team.total_points }}</td>
+            <td class="bold">{{ team.total_wins }}</td>
+            <td class="bold">{{ team.total_so }}</td>
+            <td class="bold">{{ team.total_Fpts }}</td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+
+{% endblock %}
