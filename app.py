@@ -17,7 +17,7 @@ def get_bet_players(bet_dict, set_last_season=False):
 
     for owner, players in bet_dict.items():
         for player in players:
-            player = Player(owner=owner, player_name=player)
+            player = Player(player_name=player)
             player.set_player_name_id(PLAYER_IDS)
             player.set_player_stats()
             player.set_fantrax_points()

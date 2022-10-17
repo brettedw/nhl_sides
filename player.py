@@ -12,8 +12,7 @@ TEAMS_URL = f"{BASE_URL}/api/v1/teams/"
 
 
 class Player:
-    def __init__(self, owner, player_name):
-        self.owner = owner
+    def __init__(self, player_name):
         self.player_name = player_name
         self.player_id = None
         self.games = 0

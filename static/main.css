@@ -39,3 +39,7 @@ th.owner_title {
 .bold {
     font-weight: bold;
 }
+
+hr {
+    border-top: 3px solid black;
+}
