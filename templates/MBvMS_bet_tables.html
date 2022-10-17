@@ -37,7 +37,7 @@
             <td class="bold">{{ team.total_goals }}</td>
             <td class="bold">{{ team.total_assists }}</td>
             <td class="bold">{{ team.total_points }}</td>
-            <td class="bold">{{ team.total_points / team.total_games }}</td>
+            <td class="bold">{{ (team.total_points / team.total_games)|round(2) }}</td>
         </tr>
     </table>
     {% endfor %}
