@@ -16,7 +16,7 @@ class Player:
         self.player_name = player_name
         self.player_id = None
         self.games = 0
-        self.points = 0
+        self.points = '-'
         self.Fpts = 0
         self.ppg = '-'
         self.apg = '-'
@@ -56,7 +56,7 @@ class Player:
 
     def set_fantrax_points(self):
         try:
-            self.Fpts = (self.wins + self.shutouts) * 2
+            self.Fpts = (self.wins + self.shutouts) * 2 + self.ot
         except:
             self.Fpts = self.points
 

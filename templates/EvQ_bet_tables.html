@@ -11,7 +11,7 @@
     {% for team in bet1_teams %}
     <table class="base_table">
         <tr>
-            <th colspan="8" class="owner_title">{{ team.owner }}</th>
+            <th colspan="1" class="owner_title">{{ team.owner }}</th>
         </tr>
         <tr>
             <th>Player</th>
@@ -40,7 +40,7 @@
     {% for team in bet2_teams %}
     <table class="base_table">
         <tr>
-            <th colspan="8" class="owner_title">{{ team.owner }}</th>
+            <th colspan="1" class="owner_title">{{ team.owner }}</th>
         </tr>
         <tr>
             <th>Player</th>
@@ -50,6 +50,7 @@
             <th>P</th>
             <th>W</th>
             <th>SO</th>
+            <th>OTL</th>
             <th>Fpts</th>
         </tr>
         {% for player in team.roster %}
@@ -61,6 +62,7 @@
             <td>{{ player.points }}</td>
             <td>{{ player.wins }}</td>
             <td>{{ player.shutouts }}</td>
+            <td>{{ player.ot }}</td>
             <td>{{ player.Fpts }}</td>
         </tr>
         {% endfor %}
@@ -72,6 +74,7 @@
             <td class="bold">{{ team.total_points }}</td>
             <td class="bold">{{ team.total_wins }}</td>
             <td class="bold">{{ team.total_so }}</td>
+            <td class="bold">{{ team.total_ot }}</td>
             <td class="bold">{{ team.total_Fpts }}</td>
         </tr>
     </table>
@@ -85,7 +88,7 @@
     {% for team in bet3_teams %}
     <table class="base_table">
         <tr>
-            <th colspan="5" class="owner_title">{{ team.owner }}</th>
+            <th colspan="1" class="owner_title">{{ team.owner }}</th>
         </tr>
         <tr>
             <th>Player</th>

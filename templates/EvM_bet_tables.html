@@ -79,6 +79,7 @@
             <th>P</th>
             <th>W</th>
             <th>SO</th>
+            <th>OTL</th>
             <th>Fpts</th>
         </tr>
         {% for player in team.roster %}
@@ -90,6 +91,7 @@
             <td>{{ player.points }}</td>
             <td>{{ player.wins }}</td>
             <td>{{ player.shutouts }}</td>
+            <td>{{ player.ot }}</td>
             <td>{{ player.Fpts }}</td>
         </tr>
         {% endfor %}
@@ -101,6 +103,7 @@
             <td class="bold">{{ team.total_points }}</td>
             <td class="bold">{{ team.total_wins }}</td>
             <td class="bold">{{ team.total_so }}</td>
+            <td class="bold">{{ team.total_ot }}</td>
             <td class="bold">{{ team.total_Fpts }}</td>
         </tr>
     </table>

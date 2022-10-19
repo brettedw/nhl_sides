@@ -9,6 +9,7 @@ class Team:
         self.total_points = 0
         self.total_wins = 0
         self.total_so = 0
+        self.total_ot = 0
         self.total_Fpts = 0
         self.total_pt_diff = 0
         self.total_pts_last_szn = 0
@@ -30,6 +31,7 @@ class Team:
             elif hasattr(player, 'wins'):
                 self.total_wins += player.wins
                 self.total_so += player.shutouts
+                self.total_ot += player.ot
                 self.total_Fpts += player.Fpts
             else:
                 pass
